@@ -1,20 +1,25 @@
 // import Header from "./Header";
 
+export default function Pizza({ pizzaObj }) {
+  console.log(pizzaObj);
 
-function Pizza(props){
-  console.log(props);
-    return (
-      <div className="pizza">
-        <img src={props.photoName} alt={props.name} />
-        
-        <div>
+  // if (pizzaObj.soldOut) return null;
 
-        <h3>{props.name}</h3>
-        <p>{props.ingredients}</p>
-        <span>{props.price}</span>
-        </div>
+  return (
+    <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
+      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
+      <div>
+        <h3>{pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients}</p>
+
+        {/* {pizzaObj.soldOut ? (
+          <span>SOLD OUT</span>
+        ) : (
+          <span>{pizzaObj.price}</span>
+        )} */}
+
+        <span>{pizzaObj.soldOut ? "SOLD OUT" : pizzaObj.price}</span>
       </div>
-    );
+    </li>
+  );
 }
-
-export default Pizza
